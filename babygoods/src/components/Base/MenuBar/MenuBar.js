@@ -22,7 +22,7 @@ const MenuBar = () => {
         >
           <Tab label="Home" component={Link} to="/mainHome" />
           <Tab label="introduce" component={Link} to="/introduce" />
-          <Tab label="introduce" component={Link} to="/introduce" />
+          <Tab label="crwalling" component={Link} to="/crwalling" />
         </Tabs>
       </Box>
     </Fragment>
