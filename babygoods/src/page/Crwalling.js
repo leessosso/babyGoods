@@ -5,11 +5,11 @@
 // https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=ko
 
 import React from "react";
-// import axios from "axios";
-// import cheerio from "cheerio";
+import axios from "axios";
+import cheerio from "cheerio";
 
-const axios = require("axios");
-const cheerio = require("cheerio");
+// const axios = require("axios");
+// const cheerio = require("cheerio");
 
 const getPpomppu = async () => {
   try {
