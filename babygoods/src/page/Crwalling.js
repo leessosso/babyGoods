@@ -2,7 +2,7 @@
 // https://www.youtube.com/watch?v=xbehh8lWy_A
 
 // 크로스 브라우징 서버없을 때 임시해결법
-// https://hjink247.tistory.com/31
+// https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=ko
 
 import React from "react";
 // import axios from "axios";
@@ -40,5 +40,11 @@ const parsing = async () => {
 parsing();
 
 export default function crwalling() {
-  return <div></div>;
+  return (
+    <div>
+      {hitlist.map((el) => (
+        <div>{el.title}</div>
+      ))}
+    </div>
+  );
 }
