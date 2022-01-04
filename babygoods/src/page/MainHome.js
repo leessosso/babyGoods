@@ -5,12 +5,6 @@ import styles from "./MainHome.module.css";
 // import StyledComponent from "../StyledComponent";
 
 const MainHome = () => {
-  const [value, setValue] = React.useState("one");
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <Fragment>
       <div className={styles.wrapper}>
