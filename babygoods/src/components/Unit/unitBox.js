@@ -4,31 +4,37 @@ import useCrwalling from "../../common/Hook/useCrwalling";
 
 const Box = styled.div`
   /*props로 넣어 준 값을 직접 전달해 줄 수 있음*/
-  border: solid 3px black;
-  padding: 1rem;
-  display: flex;
-  width: 20%;
+  border: 1px solid #dddddd;
+  padding: 0 0 50px;
+  display: inline-block;
+  width: 25%;
   position: relative;
+  margin: 0 3px;
 `;
 
 export const UnitBox = () => {
   const [title, setTitle] = useState("");
+  const [Image, setImage] = useState("");
 
-  const goodsList = useCrwalling(
-    "https://agabangmall.com/goods/goods_list.php?cateCd=061",
-    ".goodsBOX1"
-  );
+  const goodsList = useCrwalling({
+    url: "https://agabangmall.com/goods/goods_list.php?cateCd=061",
+    listName: ".goodsBOX1",
+    itemName: ".item_name",
+    image: ".middle gd_image_lazy",
+  });
 
   useEffect(() => {
     if (title) return;
     if (goodsList[0]?.title) {
       console.log(goodsList[0]?.title ? goodsList[0].title : "none");
       setTitle(goodsList[0]?.title);
+      setImage(goodsList[0]?.src);
     } else {
       setTimeout(() => {
         // 크롤링 시간 때문에 값이 늦게 와서 방어코드
         console.log("1000", goodsList[0]?.title ? goodsList[0].title : "none");
         setTitle(goodsList[0]?.title);
+        setImage(goodsList[0]?.src);
       }, 1000);
       return;
     }
@@ -42,17 +48,14 @@ export const UnitBox = () => {
             <div className="item_photo_box">
               <a href="../goods/goods_view.php?goodsNo=1000025491">
                 <img
-                  width="600"
-                  alt="[아가방 디즈니신상]미키투투하트웜(CREAM,YELLOW)_01P057607"
-                  title="[아가방 디즈니신상]미키투투하트웜(CREAM,YELLOW)_01P057607"
+                  width="100%"
+                  vertical-align="top"
+                  alt={title}
+                  title={title}
                   className="middle gd_image_lazy"
+                  src={Image}
                 />
               </a>
-              <div className="icon_best Montserrat">
-                <span>
-                  BEST<strong>01</strong>
-                </span>
-              </div>
               <div className="item_icon_box"></div>
             </div>
             <div className="item_info_cont">

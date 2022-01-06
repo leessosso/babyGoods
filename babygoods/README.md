@@ -1,3 +1,23 @@
+## react-query Demo
+
+```typescript
+import { useQuery } from "react-query";
+import { mainThemeAPI } from "@api/index";
+
+export default function useThemeItemAPI() {
+  const themeList = useQuery(["themeList"], () =>
+    mainThemeAPI.getHomeThemeUsingGET({
+      dispDt: "2020-01-01",
+      page: 1,
+      perPage: 20,
+    })
+  );
+  return {
+    themeList,
+  };
+}
+```
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
