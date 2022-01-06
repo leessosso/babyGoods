@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.340de741.css",
+    "main.js": "/static/js/main.46393b45.js",
+    "static/js/787.bdeaeac8.chunk.js": "/static/js/787.bdeaeac8.chunk.js",
+    "static/media/baby_bright.png": "/static/media/baby_bright.94e3e3462e8c57a439db.png",
+    "index.html": "/index.html",
+    "main.340de741.css.map": "/static/css/main.340de741.css.map",
+    "main.46393b45.js.map": "/static/js/main.46393b45.js.map",
+    "787.bdeaeac8.chunk.js.map": "/static/js/787.bdeaeac8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.340de741.css",
+    "static/js/main.46393b45.js"
+  ]
+}
