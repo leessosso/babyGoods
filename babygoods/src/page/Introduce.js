@@ -11,7 +11,10 @@ const Introduce = () => {
       <div>
         <h1>소개</h1>
       </div>
-      <UnitBox />
+      <ul>
+        <UnitBox />
+        <UnitBox />
+      </ul>
     </Fragment>
   );
 };
