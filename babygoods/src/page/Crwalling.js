@@ -4,47 +4,33 @@
 // 크로스 브라우징 서버없을 때 임시해결법
 // https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=ko
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import cheerio from "cheerio";
 
-// const axios = require("axios");
-// const cheerio = require("cheerio");
+export default function Crwalling() {
+  const [html, setHtml] = useState("");
+  const [hitlist, setHitlist] = useState([]);
 
-const getPpomppu = async () => {
-  try {
-    return await axios.get(
-      "https://www.ppomppu.co.kr/zboard/zboard.php?id=ppomppu&hotlist_flag=2"
-    );
-  } catch (err) {
-    console.log(err);
-  }
-};
+  const getPpomppu = async () => {
+    return await axios.get("api/crwalling");
+  };
 
-let hitlist = [];
+  const parsing = async () => {
+    const html = await getPpomppu();
+    setHitlist(html.data);
+  };
 
-const parsing = async () => {
-  const html = await getPpomppu();
-  //   console.log(html.data);
-  const $ = cheerio.load(html.data);
-  const $hitList = $(".list1");
+  useEffect(() => {
+    parsing();
+  }, []);
 
-  $hitList.each((idx, node) => {
-    console.log($(node).find(".list_title").text());
-    hitlist.push({
-      title: $(node).find(".list_title").text(),
-    });
-  });
-};
-
-parsing();
-
-export default function crwalling() {
   return (
-    <div>
-      {hitlist.map((el) => (
-        <div>{el.title}</div>
-      ))}
-    </div>
+    <>
+      <div>
+        {hitlist.map((el, idx) => (
+          <div key={idx}>{el.title}</div>
+        ))}
+      </div>
+    </>
   );
 }
