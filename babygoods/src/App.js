@@ -21,17 +21,22 @@ const App = () => {
     callApi();
   }, []);
 
+  const REST_API_KEY = "2cb7bc17e1fa44e5da8e222a35c49b43";
+  const REDIRECT_URI = "http://localhost:3000/crwalling";
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
   return (
     <div>
       <HeaderContainer />
       <MenuBarContainer />
+      <div>{testState}</div>
+      <h1><a href={KAKAO_AUTH_URL}>Kakao Login</a></h1>
       <Routes>
         <Route path="/" element={<MainHome />} />
         <Route path="/mainHome" element={<MainHome />} />
         <Route path="/introduce" element={<Introduce />} />
         <Route path="/crwalling" element={<Crwalling />} />
       </Routes>
-      <div>{testState}</div>
       {/* <MainHome /> */}
     </div>
   );
