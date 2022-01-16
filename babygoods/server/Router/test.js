@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
+const Iconv = require("iconv-lite");
 
 router.get("/", (req, res) => {
   res.send({ test: "hi everyone!" });
@@ -19,11 +20,11 @@ router.get("/crwalling", async (req, res) => {
   }
   // console.log(html);
 
-  const $ = cheerio.load(html.data);
+  const $ = cheerio.load(Iconv.decode(html.data, "EUC-KR"));
   const $hitList = $(".list1");
 
   $hitList.each((idx, node) => {
-    //console.log($(node).find(".list_title").text());
+    // console.log($(node).find(".list_title").text());
     hitlist.push({
       title: $(node).find(".list_title").text(),
     });
